@@ -1,0 +1,8 @@
+---
+- name: Initialize Kubernetes worker
+  hosts: workers 
+  become: true
+
+  tasks:
+    - name: Join cluster
+      shell: "{{ lookup('file', './join-command.sh') }}"
